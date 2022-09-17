@@ -62,11 +62,11 @@
 <body>
     <div class="w3-top">
         <div class="w3-bar w3-white w3-card" id="myNavbar">
-            <a href="{% url 'registrar:index' %}" class="w3-bar-item w3-button w3-wide"><b>REGISTRAR</b></a>
+            <a href="{% url 'registrar:index' %}" class="w3-bar-item w3-button w3-wide w3-xlarge"><b>REGISTRAR</b></a>
       
             <div class="w3-right w3-hide-small">
-                <a href="{% url 'user:index' %}" class="w3-bar-item w3-button w3-xlarge"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
-                <a href="{% url 'user:logout' %}" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> LOG OUT</a>
+                <a href="{% url 'user:user' %}" class="w3-bar-item w3-button w3-xlarge"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                <a href="{% url 'user:logout' %}" class="w3-bar-item w3-button w3-xlarge"><i class="fa fa-sign-out"></i> LOG OUT</a>
             </div>
       
             <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">

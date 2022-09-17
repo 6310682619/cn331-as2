@@ -1,27 +1,29 @@
 {% extends 'registrar/layout.html' %}
 {% block body %}
 
+<div>
 <br><br>
-<h3 style="margin-top: 50px;margin-left: 30px;">COURSES</h3>
-
-<table style="text-align: center;">
-  <tr class = "header">
-    <th>CODE</th>
-    <th>COURSE NAME</th>
-    <th>SEMESTER</th>
-    <th>QUOTA</th>
-    <th>REGISTER</th>
-  </tr>
-    {% for course in courses %}
-    <tr>
-      <td>{{ course.course_code }}</td>
-      <td>{{ course.course_name }}</td>
-      <td>{{ course.semester }}/{{ course.year }}</td>
-      <td>{{ count }}/{{ course.seat }}</td>
-      <td><a href="{% url 'registrar:register' course.id %}"><button class="btn enroll"><i class="fa fa-pencil-square-o"></i></button></a></td>
+  <h3 style="margin-top: 50px;margin-left: 30px;">COURSES</h3>
+  {% if courses %}
+  <table style="text-align: center;">
+    <tr class = "header">
+      <th>CODE</th>
+      <th>COURSE NAME</th>
+      <th>SEMESTER</th>
+      <th>QUOTA</th>
+      <th>REGISTER</th>
     </tr>
-    {% endfor %}
-</table>
-
+      {% for course in courses %}
+      <tr>
+        <td>{{ course.course_code }}</td>
+        <td>{{ course.course_name }}</td>
+        <td>{{ course.semester }}/{{ course.year }}</td>
+        <td>{{ course.seat }}</td>
+        <td><a href="{% url 'registrar:register' course.id %}"><button class="btn enroll"><i class="fa fa-pencil-square-o"></i></button></a></td>
+      </tr>
+      {% endfor %}
+  </table>
+  {% endif %}
+</div>
 
 {% endblock %}

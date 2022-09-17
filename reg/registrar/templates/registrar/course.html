@@ -16,7 +16,7 @@
     <td>{{ course.course_name }}</td>
     <td>{{ course.semester }}</td>
     <td>{{ course.year }}</td>
-    <td><a href="{% url 'registrar:remove' %}"><button class="remove">Remove</button></a></td>
+    <td><a href="{% url 'registrar:remove' course.id %}"><button class="remove">Remove</button></a></td>
   </tr>
   {% endfor %}
 </table>

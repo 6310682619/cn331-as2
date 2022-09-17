@@ -13,7 +13,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('user:index'))
+            return HttpResponseRedirect(reverse('registrar:index'))
         else:
             return render(request, 'user/login.html', {
                 'message': 'Invalid credentials.'
@@ -31,3 +31,5 @@ def index(request):
         return HttpResponseRedirect(reverse('user:login'))
     return render(request, 'registrar/index.html')
 
+def user(request):
+    return render(request, 'user/index.html')
