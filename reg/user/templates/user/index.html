@@ -1,0 +1,29 @@
+{% extends 'user/layout.html' %}
+{% block body %}
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <a href="{% url 'registrar:index' %}" class="w3-bar-item w3-button w3-wide w3-xlarge"><b>REGISTRAR</b></a>
+
+      <div class="w3-right w3-hide-small">
+          <a href="{% url 'user:index' %}" class="w3-bar-item w3-button w3-xlarge"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+          <a href="{% url 'user:logout' %}" class="w3-bar-item w3-button w3-large"><i class="fa fa-sign-out"></i> LOG OUT</a>
+      </div>
+
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+          <i class="fa fa-bars"></i>
+      </a>
+  </div>
+</div>
+<br><br>
+<h2 style="text-align: center;">WELCOME</h2>
+
+<div class="card">
+  <img src="https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png" alt="John" style="width:120px">
+  <h1>{{ request.user.username }}</h1>
+  <p class="title">{{ student.first }} {{ student.last }}</p>
+  <p>{{ request.user.email }}</p>
+</div>
+
+
+{% endblock %}

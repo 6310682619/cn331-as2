@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>REGISTRAR</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+            .w3-bar .w3-button {
+            padding: 18px;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th, td {
+                padding: 8px;
+                text-align: left;
+                border-bottom: 1px solid #ffffff;
+            }
+
+            tr:hover {background-color:#5c85d6 ;}
+            
+            .btn {
+            border: none;
+            background-color: inherit;
+            padding: 14px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            }
+
+            /* Green */
+            .enroll {
+            color: rgb(20, 0, 79);
+            }
+
+            .enroll:hover {
+            background-color: rgb(20, 0, 79);
+            color: white;
+            }
+
+            .back {
+            background-color: #a19e9e;
+            color: black;
+            }
+
+            .remove {
+            background-color: rgb(202, 5, 5);
+            color: white;
+            }
+
+        </style>
+    </head>
+<body>
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <a href="{% url 'registrar:index' %}" class="w3-bar-item w3-button w3-wide"><b>REGISTRAR</b></a>
+      
+            <div class="w3-right w3-hide-small">
+                <a href="{% url 'user:index' %}" class="w3-bar-item w3-button w3-xlarge"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                <a href="{% url 'user:logout' %}" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> LOG OUT</a>
+            </div>
+      
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+      </div>
+
+    {% block body %}
+    {% endblock %}
+</body>
+</html>
