@@ -1,6 +1,6 @@
 {% extends 'registrar/layout.html' %}
 {% block body %}
-
+<br><br>
 <h1>ENROLLMENT RESULT</h1>
 <table>
   <tr>
@@ -10,17 +10,15 @@
     <th>YEAR</th>
     <th></th>
   </tr>
-  {% for course in courses %}
   <tr>
     <td>{{ course.course_code }}</td>
     <td>{{ course.course_name }}</td>
     <td>{{ course.semester }}</td>
     <td>{{ course.year }}</td>
-    <td><a href="{% url 'registrar:remove' course.id %}"><button class="remove">Remove</button></a></td>
+    <td><a href="{% url 'remove' course.id %}"><button class="remove">Remove</button></a></td>
   </tr>
-  {% endfor %}
 </table>
 <br>
-<a href="{% url 'registrar:index' %}"><button  class="back"><i class="fa fa-angle-double-left"></i> Back</button></a>
+<a href="{% url 'rgindex' %}"><button  class="back"><i class="fa fa-angle-double-left"></i> Back</button></a>
 
 {% endblock %}

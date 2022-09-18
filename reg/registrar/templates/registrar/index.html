@@ -3,8 +3,8 @@
 
 <div>
 <br><br>
-  <h3 style="margin-top: 50px;margin-left: 30px;">COURSES</h3>
-  {% if courses %}
+  <h2 style="margin-top: 50px;margin-left: 30px;">COURSES</h2>
+  
   <table style="text-align: center;">
     <tr class = "header">
       <th>CODE</th>
@@ -19,11 +19,11 @@
         <td>{{ course.course_name }}</td>
         <td>{{ course.semester }}/{{ course.year }}</td>
         <td>{{ course.seat }}</td>
-        <td><a href="{% url 'registrar:register' course.id %}"><button class="btn enroll"><i class="fa fa-pencil-square-o"></i></button></a></td>
+        <td><a href="{% url 'course' course.id %}"><button class="btn enroll"><i class="fa fa-pencil-square-o"></i></button></a></td>
       </tr>
       {% endfor %}
   </table>
-  {% endif %}
+ 
 </div>
 
 {% endblock %}

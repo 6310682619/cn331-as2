@@ -3,7 +3,7 @@
 
 <h1 style="text-align: center;">LOG IN</h1>
 
-<form action="{% url 'user:login' %}" method="POST">
+<form action="{% url 'login' %}" method="POST">
   {% csrf_token %}
 
   <div class="input-container">

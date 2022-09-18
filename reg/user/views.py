@@ -13,23 +13,23 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('registrar:index'))
+            return HttpResponseRedirect(reverse('index'))
         else:
-            return render(request, 'user/login.html', {
+            return render(request, 'user\\login.html', {
                 'message': 'Invalid credentials.'
             })
-    return render(request, 'user/login.html')
+    return render(request, 'user\\login.html')
 
 def logout_view(request):
     logout(request)
-    return render(request, 'user/login.html', {
+    return render(request, 'user\\login.html', {
         'message': 'Logged out'
     })
 
 def index(request):
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('user:login'))
-    return render(request, 'registrar/index.html')
+        return HttpResponseRedirect(reverse('login'))
+    return render(request, 'user\\index.html')
 
 def user(request):
-    return render(request, 'user/index.html')
+    return render(request, 'user\\index.html')
