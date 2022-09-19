@@ -1,0 +1,16 @@
+{% extends 'registrar/layout.html' %}
+{% block body %}
+
+
+<ul>
+    <br><br><br><br>
+    {% for rg in rg_course %}
+    <li>{{ rg }} <a href="{% url 'remove' user.username rg.id %}"><button class="remove">Remove</button></a> </li>
+    {% endfor %}
+</ul>
+
+<br>
+<a href="{% url 'rgindex' %}"><button  class="back"><i class="fa fa-angle-double-left"></i> Back</button></a>
+
+
+{% endblock %}

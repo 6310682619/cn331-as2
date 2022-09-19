@@ -1,7 +1,7 @@
 {% extends 'registrar/layout.html' %}
 {% block body %}
-<br><br>
-<h1>ENROLLMENT RESULT</h1>
+
+<h3 style="margin-top:100px ;">ENROLLMENT RESULT</h3>
 <table>
   <tr>
     <th>CODE</th>
@@ -15,7 +15,6 @@
     <td>{{ course.course_name }}</td>
     <td>{{ course.semester }}</td>
     <td>{{ course.year }}</td>
-    <td><a href="{% url 'remove' course.id %}"><button class="remove">Remove</button></a></td>
   </tr>
 </table>
 <br>

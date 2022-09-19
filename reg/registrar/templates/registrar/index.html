@@ -15,15 +15,18 @@
     </tr>
       {% for course in courses %}
       <tr>
-        <td>{{ course.course_code }}</td>
+        <td><a href="{% url 'course' course.id %}">{{ course.course_code }}</a></td>
         <td>{{ course.course_name }}</td>
         <td>{{ course.semester }}/{{ course.year }}</td>
         <td>{{ course.seat }}</td>
-        <td><a href="{% url 'course' course.id %}"><button class="btn enroll"><i class="fa fa-pencil-square-o"></i></button></a></td>
+        <td><a href="{% url 'add' user.username course.id %}"><button class="btn enroll"><i class="fa fa-pencil-square-o"></i></button></a></td>
       </tr>
       {% endfor %}
   </table>
- 
+  <br>
+  <h3 style="margin-top: 50px;margin-left: 30px">
+  <a href="{% url 'register' user.username %}"><i class="fa fa-book"></i>see your quota</a>
+  </h3>
 </div>
 
 {% endblock %}
