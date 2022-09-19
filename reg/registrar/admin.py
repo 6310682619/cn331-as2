@@ -8,6 +8,6 @@ class StudentAdmin(admin.ModelAdmin):
 class CourseAdmin(admin.ModelAdmin):
     list_display = ['course_code', 'course_name', 'semester', 'year', 'seat', 'status']
 
-admin.site.register(Student, StudentAdmin)
-admin.site.register(Course, CourseAdmin)
+admin.site.register(Student)
+admin.site.register(Course)
 admin.site.register(Register)

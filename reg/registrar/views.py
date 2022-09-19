@@ -28,7 +28,7 @@ def register(request, username):
         'rg_course': rg.course.all(),
         "nonrg_course": Course.objects.exclude(rg_course=rg).all(),
     })
-    
+
 def add(request, username, course_id):
     user = User.objects.get(username=username)
     student = Student.objects.get(username=user)
@@ -46,7 +46,7 @@ def remove(request, username, course_id):
     user = User.objects.get(username=username)
     student = Student.objects.get(username=user)
     rg = Register.objects.get(student=student)
-    cancle_c = rg.course.get(id = course_id)
+    cancle_c = rg.course.get(id=course_id)
     cancle_c.delete()
     cancle_c.seat += 1
     cancle_c.save()
@@ -59,4 +59,3 @@ def myenroll(request):
     return render(request, 'registrar\\course.html', {
         'enroll': enroll,
     })
-
