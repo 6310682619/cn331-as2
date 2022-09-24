@@ -9,14 +9,14 @@ from .models import Course, Student, Register
 def index(request):
     courses = Course.objects.all()
     
-    return render(request, 'registrar\\index.html', {
+    return render(request, 'registrar/index.html', {
         'courses': courses,
     })
 
 def course(request, course_code):
     course = Course.objects.get(id=course_code)
 
-    return render(request, 'registrar\\course.html', {
+    return render(request, 'registrar/course.html', {
         'course': course,
     })
 
@@ -24,7 +24,7 @@ def register(request, username):
     user = User.objects.get(username=username)
     student = Student.objects.get(username=user)
     rg = Register.objects.get(student=student)
-    return  render(request, 'registrar\\register.html', {
+    return  render(request, 'registrar/register.html', {
         'rg_course': rg.course.all(),
         "nonrg_course": Course.objects.exclude(rg_course=rg).all(),
     })
@@ -37,7 +37,7 @@ def add(request, username, course_id):
     rg.course.add(course)
     course.seat -= 1
     course.save()
-    return  render(request, 'registrar\\register.html', {
+    return  render(request, 'registrar/register.html', {
         'rg_course': rg.course.all(),
         "nonrg_course": Course.objects.exclude(rg_course=rg).all(),
     })
@@ -51,11 +51,3 @@ def remove(request, username, course_id):
     cancle_c.seat += 1
     cancle_c.save()
     return HttpResponseRedirect(reverse('register', args=(username,)))
-
-def myenroll(request):
-    student = Student.objects.get(username=request.user.username)
-    enroll = Register.objects.filter(student=student).all()
-
-    return render(request, 'registrar\\course.html', {
-        'enroll': enroll,
-    })
