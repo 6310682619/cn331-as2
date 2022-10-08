@@ -25,6 +25,18 @@ class UserViewTest(TestCase):
             last="Laufeyson"
         )
 
+    def test_user(self):
+        c = Client()
+        c.post(reverse('login'),
+               {'username': 'user1', 
+               'password': 'sunday11'})
+        response = c.get(reverse('user'))
+
+        # Check response
+        self.assertEqual(response.status_code, 200)
+        # Check template
+        self.assertTemplateUsed(response, 'user/index.html')
+
     def test_login_view(self):
         c = Client()
         response = c.get(reverse('login'))

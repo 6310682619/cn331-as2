@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 class ModelsTestCase(TestCase):
     def setUp(self):
-        self.course1 = Course.objects.create(
+        course1 = Course.objects.create(
             course_code="CN1", 
             course_name="A", 
             semester=1,
@@ -15,21 +15,13 @@ class ModelsTestCase(TestCase):
             status=1
         )
 
-        user1 = User.objects.create_user(username='user1', password='sunday11')
+        user1 = User.objects.create_user(username='user1', password='sunday11', email='sunday@morning.com')
         user1.save()
-        user2 = User.objects.create_user(username='user2', password='monday22')
-        user2.save()
 
-        self.student1 = Student.objects.create(
+        student1 = Student.objects.create(
             username=user1, 
             first="Loki", 
             last="Laufeyson"
-        )
-
-        self.student2 = Student.objects.create(
-            username=user2, 
-            first="Tony", 
-            last="Stark"
         )
         
     def test_seat_available(self):
@@ -38,8 +30,9 @@ class ModelsTestCase(TestCase):
 
     def test_seat_not_available(self):
         course = Course.objects.first()
-        student1 = Register.objects.first()
+        student1 = Student.objects.first()
+        register = Register.objects.create(student=student1)
 
-        course.rg_course.add(student1)
+        course.rg_course.add(register)
 
         self.assertFalse(course.is_seat_available())
