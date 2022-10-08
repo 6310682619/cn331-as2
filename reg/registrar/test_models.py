@@ -38,7 +38,7 @@ class ModelsTestCase(TestCase):
 
     def test_seat_not_available(self):
         course = Course.objects.first()
-        student1 = Student.objects.first()
+        student1 = Register.objects.first()
 
         course.rg_course.add(student1)
 

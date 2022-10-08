@@ -11,8 +11,9 @@ class UserViewTest(TestCase):
 
     def test_logged_in(self):
         c = Client()
-        login = c.login(username='user1', password='sunday')
-        response = c.get(reverse('index'))
+        response = c.post(reverse('user:login'),
+               {'username': 'user1', 
+               'password': 'sunday11'})
 
         # Check response
         self.assertEqual(response.status_code, 200)
@@ -23,3 +24,18 @@ class UserViewTest(TestCase):
 
         # Check response
         self.assertEqual(response.status_code, 200)
+        self.assertTrue(response.context['message'] == 'Logged out')
+
+    def test_not_user_login(self):
+        c = Client()
+        response = c.post(reverse('user:login'),
+               {'username': 'user3', 
+               'password': 'tuesday3'})
+
+        self.assertTrue(response.context['message'] == 'Invalid credentials.')
+
+        response = c.get(reverse('user:login'))
+        self.assertEqual(response.status_code, 200)
+
+        response = c.get(reverse('user:index'))
+        self.assertEqual(response.status_code, 302)

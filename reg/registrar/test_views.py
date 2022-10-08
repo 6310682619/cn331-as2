@@ -25,9 +25,6 @@ class RegistrarViewTest(TestCase):
             last="Laufeyson"
         )
 
-        self.kwargs={'username':self.student1.username,
-        'course_id':self.course1.id}
-
     def test_index_view(self):
         c = Client()
         response=c.get(reverse('rgindex'))
@@ -38,7 +35,7 @@ class RegistrarViewTest(TestCase):
 
     def test_course_view(self):
         c = Client()
-        response=c.get(reverse('course', args=(self.course1.id,)))
+        response=c.get(reverse('course', args=[self.course1.id,]))
         # Check response
         self.assertEqual(response.status_code, 200)
         # Check template
@@ -46,7 +43,7 @@ class RegistrarViewTest(TestCase):
 
     def test_register_view(self):
         c = Client()
-        response=c.get(reverse('register', args=(self.student1.username,)))
+        response=c.get(reverse('register', args=[self.student1.username,]))
         # Check response
         self.assertEqual(response.status_code, 200)
         # Check template
@@ -54,7 +51,7 @@ class RegistrarViewTest(TestCase):
 
     def test_add_view(self):
         c = Client()
-        response=c.get(reverse('add', **self.kwargs))
+        response=c.get(reverse('registrar:add',args=[self.student1.username, self.course1.id]))
         # Check response
         self.assertEqual(response.status_code, 200)
         # Check template
@@ -62,10 +59,8 @@ class RegistrarViewTest(TestCase):
 
     def test_remove_view(self):
         c = Client()
-        response=c.get(reverse('remove', **self.kwargs))
+        response=c.get(reverse('registrar:remove',args=[self.student1.username, self.course1.id]))
         # Check response
         self.assertEqual(response.status_code, 200)
         # Check template
         self.assertTemplateUsed(response, 'registrar/register.html')
-
-#args=(self.student1.username,), args2=(self.course1.id,)
