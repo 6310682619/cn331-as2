@@ -15,18 +15,19 @@ registrar\migrations\0002_alter_course_status.py                                
 registrar\migrations\0003_remove_register_course_user_quotas_register_course.py          5      0   100%
 registrar\migrations\0004_alter_register_course_alter_register_student_and_more.py       6      0   100%
 registrar\migrations\__init__.py                                                         0      0   100%
-registrar\models.py                                                                     27      1    96%
-registrar\test_models.py                                                                17      0   100%
-registrar\test_views.py                                                                 43     14    67%
+registrar\models.py                                                                     27      2    93%
+registrar\test_models.py                                                                18      0   100%
+registrar\test_views.py                                                                 51      0   100%
 registrar\urls.py                                                                        4      0   100%
-registrar\views.py                                                                      34     17    50%
+registrar\views.py                                                                      34      0   100%
 user\__init__.py                                                                         0      0   100%
 user\admin.py                                                                            1      0   100%
 user\apps.py                                                                             4      0   100%
 user\migrations\__init__.py                                                              0      0   100%
 user\models.py                                                                           1      0   100%
-user\tests.py                                                                           34      0   100%
+user\tests.py                                                                           40      0   100%
 user\urls.py                                                                             4      0   100%
-user\views.py                                                                           23      1    96%
+user\views.py                                                                           23      0   100%
 --------------------------------------------------------------------------------------------------------
-TOTAL                                                                                  280     43    85%
+TOTAL                                                                                  295     12    96%
+
