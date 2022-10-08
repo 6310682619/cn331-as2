@@ -9,7 +9,7 @@ jobs:
     - name: Run Django unit tests
       run: |
         pip3 install -r reg/requirements.txt
-        python3 reg/manage.py makemigrations
-        python3 reg/manage.py migrate
+        python reg/manage.py makemigrations
+        python reg/manage.py migrate
         coverage run --source='.' reg/manage.py test
         coverage report
