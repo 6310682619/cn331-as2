@@ -18,6 +18,9 @@ class Course(models.Model):
     def __str__(self):
         return f"{ self.course_code } { self.course_name } { self.semester } { self.year } { self.seat } { self.status }"
 
+    def is_seat_available(self):
+        return self.rg_course.count() < self.seat
+
 class Student(models.Model):
     username = models.ForeignKey(User, on_delete=models.CASCADE, related_name="student", null=True)
     first = models.CharField(max_length=64)
